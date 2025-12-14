@@ -53,51 +53,53 @@ Ensembling helps improve:
 - Produces fewer false positives  
 
 ## Environment Setup
-1. Create virtual environment:
-   ```bash
-   python -m venv venv
-2. Activate environemnt
-   .\venv\Scripts\activate
-3.Install dependencies:
-   pip install -r environment/requirements.txt
+```bash                                             
+python -m venv venv                                   #1. Create a virtual environment
+.\venv\Scripts\activate                               #2. Activate virtual environment
+pip install -r environment/requirements.txt           #3. Install dependencies
+```
 
 ## Training the Dataset
 The dataset was trained on Google Colab:
 
-    model = YOLO("yolov8s.pt")
-    model.train(
-      data="<path>/data.yaml",
-      epochs=50,
-      imgsz=640,
-      batch=16,
-      device="cuda"
+```python
+model = YOLO("yolov8s.pt")
+model.train(
+   data="<path>/data.yaml",
+   epochs=50,
+   imgsz=640,
+   batch=16,
+   device="cuda"
 )
+```
 
 ## Ensemble Algorithm
 The main prediction logic lies inside pipeline_code/ensemble_api.py.
+```python
+Usage:
+from pipeline_code.ensemble_api import ensemble_predict
 
-Usage: 
-  from pipeline_code.ensemble_api import ensemble_predict
-
-  result = ensemble_predict("test_images/sample.png")
-  print(result)
+result = ensemble_predict("test_images/sample.png")
+print(result)
 
 Example Output:
-  {
-    "has_solar": true,
-    "confidence": 0.82,
-    "pv_area_sqm_est": 12.55,
-    "reason": "High-confidence solar detection",
-    "detections": [[50, 120, 200, 260]]
-  }
+{
+   "has_solar": true,
+   "confidence": 0.82,
+   "pv_area_sqm_est": 12.55,
+   "reason": "High-confidence solar detection",
+   "detections": [[50, 120, 200, 260]]
+}
+```
 
 ## Lat/Lon Satellite Prediction
-
-Add your Google API key to .env:
-  GOOGLE_API_KEY=YOUR_KEY
+Add your Google API key to `.env`:
+```env
+GOOGLE_API_KEY=YOUR_KEY
 
 Usage:
-  python pipeline_code/ensemble_latlon.py 13.152261 77.569047 prediction_files/test4.json
+python pipeline_code/ensemble_latlon.py 13.152261 77.569047 prediction_files/test4.json
+```
 
 ## Batch CSV/XLSX Prediction
 
@@ -105,16 +107,17 @@ Required Columns:
   sample_id, latitude, longitude
 
 Run Batch:
-  python -m pipeline_code.batch_predict_csv --csv test/samples.csv --out results/
-  python -m pipeline_code.batch_predict_csv --csv test/Sample1.xlsx --out results/
+```python
+python -m pipeline_code.batch_predict_csv --csv test/samples.csv --out results/
+python -m pipeline_code.batch_predict_csv --csv test/Sample1.xlsx --out results/
 
 Outputs:
-  results/
-  ├── 101.json
-  ├── 102.json
-  └── results_summary.csv
+results/
+├── 101.json
+├── 102.json
+└── results_summary.csv
 
-JSON Output Structure
+JSON Output Structure:
   {
     "sample_id": "12345",
     "lat": 12.97,
@@ -131,38 +134,40 @@ JSON Output Structure
   }
 }
 
+```
 ## Project Strucute
-
+```text
 rooftop-solar-pv-detection-final/
-├── artefacts/                       # Raw negative images (no solar)
-├── datasets/                        # Main dataset from Roboflow + pre-processed negative images
-│   ├── test/
-│   ├── train/
-│   ├── valid/
-│   └── data.yml
+├── artefacts/ # Raw negative images (no solar)
+├── datasets/ # Main dataset from Roboflow + pre-processed negatives
+│ ├── test/
+│ ├── train/
+│ ├── valid/
+│ └── data.yml
 ├── environment/
-│   ├── environment.yml
-│   ├── python_version.txt
-│   └── requirements.txt
+│ ├── environment.yml
+│ ├── python_version.txt
+│ └── requirements.txt
 ├── model_card/
 ├── pipeline_code/
-│   ├── ensemble_api.py              # Solar detection + ensemble logic
-│   ├── batch_predict_csv.py         # Batch prediction (CSV/XLSX)
-│   ├── ensemble_latlon.py
-│   ├── ensemble_predict.py
-│   ├── evaluate_model.py
-│   ├── fetch_sarellite.py
-│   ├── utils.py
-│   └── __init__.py
+│ ├── ensemble_api.py # Solar detection + ensemble logic
+│ ├── batch_predict_csv.py # Batch prediction (CSV/XLSX)
+│ ├── ensemble_latlon.py
+│ ├── ensemble_predict.py
+│ ├── evaluate_model.py
+│ ├── fetch_sarellite.py
+│ ├── utils.py
+│ └── init.py
 ├── trained_model/
-│   ├── best_original.pt
-│   ├── best_negative.pt
+│ ├── best_original.pt
+│ ├── best_negative.pt
 ├── training_logs/
 ├── results/
 ├── prediction_files/
 ├── venv/
 ├── .env
-├── README.md
+└── README.md
+```
 
 ## License
 
