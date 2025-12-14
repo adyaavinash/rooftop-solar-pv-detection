@@ -74,9 +74,8 @@ model.train(
 ```
 
 ## Ensemble Algorithm
-```python
 The main prediction logic lies inside pipeline_code/ensemble_api.py.
-
+```python
 Usage:
 from pipeline_code.ensemble_api import ensemble_predict
 
