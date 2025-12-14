@@ -1,0 +1,15 @@
+{
+    "sample_id": 1,
+    "lat": 13.151125,
+    "lon": 77.568799,
+    "has_solar": false,
+    "confidence": 0.0,
+    "pv_area_sqm_est": 0,
+    "buffer_radius_sqft": 1200,
+    "qc_status": "VERIFIABLE",
+    "bbox_or_mask": [],
+    "image_metadata": {
+        "source": "Google Static Maps",
+        "capture_date": "N/A"
+    }
+}

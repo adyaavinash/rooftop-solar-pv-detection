@@ -1,0 +1,9 @@
+ultralytics
+opencv-python
+numpy
+pandas
+pyyaml
+pillow
+python-dotenv
+requests
+openpyxl

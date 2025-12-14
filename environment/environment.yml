@@ -1,0 +1,10 @@
+name: solar-pv
+dependencies:
+  - python=3.10
+  - pip
+  - pip:
+    - ultralytics
+    - opencv-python
+    - numpy
+    - pandas
+    - pyyaml

@@ -1,0 +1,5 @@
+sample_id,latitude,longitude,has_solar,confidence,pv_area_sqm,bbox_count,reason
+1,13.152257,77.569047,True,0.647,316.37,1,High-confidence solar detection
+2,13.157298,77.569695,False,0.0,0.0,0,Original model found nothing
+3,13.156312,77.569708,False,0.0,0.0,0,Original model found nothing
+4,13.076655,77.557242,True,0.815,16.14,1,High-confidence solar detection

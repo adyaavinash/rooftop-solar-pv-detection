@@ -1,0 +1,12 @@
+{
+    "lat": 13.076666,
+    "lon": 77.557247,
+    "has_solar": false,
+    "confidence": 0.0,
+    "qc_status": "NO_PANEL",
+    "reason": "Original model found nothing",
+    "detections": [],
+    "image_metadata": {
+        "source": "Google Static Maps"
+    }
+}

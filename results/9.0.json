@@ -1,0 +1,22 @@
+{
+    "sample_id": 9.0,
+    "lat": 13.081429,
+    "lon": 77.558261,
+    "has_solar": true,
+    "confidence": 0.795,
+    "pv_area_sqm_est": 326.77,
+    "buffer_radius_sqft": 1200,
+    "qc_status": "VERIFIABLE",
+    "bbox_or_mask": [
+        [
+            223.4929656982422,
+            261.4535827636719,
+            419.55120849609375,
+            377.1980285644531
+        ]
+    ],
+    "image_metadata": {
+        "source": "Google Static Maps",
+        "capture_date": "N/A"
+    }
+}
