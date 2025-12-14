@@ -110,9 +110,9 @@ Run Batch:
 
 Outputs:
   results/
-  ├── 101.json
-  ├── 102.json
-  └── results_summary.csv
+├── 101.json
+├── 102.json
+└── results_summary.csv
 
 JSON Output Structure
   {
@@ -134,29 +134,29 @@ JSON Output Structure
 ## Project Strucute
 
 rooftop-solar-pv-detection-final/
-├── artefacts/                       # Raw negative images (no solar)
-├── datasets/                        # Main dataset from Roboflow + pre-processed negative images
-│   ├── test/
-│   ├── train/
-│   ├── valid/
-│   └── data.yml
+├── artefacts/ # Raw negative images (no solar)
+├── datasets/ # Main dataset from Roboflow + pre-processed negatives
+│ ├── test/
+│ ├── train/
+│ ├── valid/
+│ └── data.yml
 ├── environment/
-│   ├── environment.yml
-│   ├── python_version.txt
-│   └── requirements.txt
+│ ├── environment.yml
+│ ├── python_version.txt
+│ └── requirements.txt
 ├── model_card/
 ├── pipeline_code/
-│   ├── ensemble_api.py              # Solar detection + ensemble logic
-│   ├── batch_predict_csv.py         # Batch prediction (CSV/XLSX)
-│   ├── ensemble_latlon.py
-│   ├── ensemble_predict.py
-│   ├── evaluate_model.py
-│   ├── fetch_sarellite.py
-│   ├── utils.py
-│   └── __init__.py
+│ ├── ensemble_api.py # Solar detection + ensemble logic
+│ ├── batch_predict_csv.py # Batch prediction (CSV/XLSX)
+│ ├── ensemble_latlon.py
+│ ├── ensemble_predict.py
+│ ├── evaluate_model.py
+│ ├── fetch_sarellite.py
+│ ├── utils.py
+│ └── init.py
 ├── trained_model/
-│   ├── best_original.pt
-│   ├── best_negative.pt
+│ ├── best_original.pt
+│ ├── best_negative.pt
 ├── training_logs/
 ├── results/
 ├── prediction_files/
