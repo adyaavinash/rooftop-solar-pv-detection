@@ -57,8 +57,8 @@ Ensembling helps improve:
 python -m venv venv                                   #1. Create a virtual environment
 .\venv\Scripts\activate                               #2. Activate virtual environment
 pip install -r environment/requirements.txt           #3. Install dependencies
+```
 
-```md
 ## Training the Dataset
 The dataset was trained on Google Colab:
 
@@ -71,21 +71,19 @@ model.train(
    batch=16,
    device="cuda"
 )
+```
 
 ## Ensemble Algorithm
+```python
 The main prediction logic lies inside pipeline_code/ensemble_api.py.
 
-```md
 Usage:
-```python
 from pipeline_code.ensemble_api import ensemble_predict
 
 result = ensemble_predict("test_images/sample.png")
 print(result)
 
-```md
 Example Output:
-```json
 {
    "has_solar": true,
    "confidence": 0.82,
@@ -93,16 +91,16 @@ Example Output:
    "reason": "High-confidence solar detection",
    "detections": [[50, 120, 200, 260]]
 }
+```
 
 ## Lat/Lon Satellite Prediction
-```md
 Add your Google API key to `.env`:
 ```env
 GOOGLE_API_KEY=YOUR_KEY
 
 Usage:
-```python
 python pipeline_code/ensemble_latlon.py 13.152261 77.569047 prediction_files/test4.json
+```
 
 ## Batch CSV/XLSX Prediction
 
@@ -114,17 +112,13 @@ Run Batch:
 python -m pipeline_code.batch_predict_csv --csv test/samples.csv --out results/
 python -m pipeline_code.batch_predict_csv --csv test/Sample1.xlsx --out results/
 
-```md
 Outputs:
-```text
 results/
 ├── 101.json
 ├── 102.json
 └── results_summary.csv
 
-```md
 JSON Output Structure:
-```json
   {
     "sample_id": "12345",
     "lat": 12.97,
@@ -141,7 +135,7 @@ JSON Output Structure:
   }
 }
 
-```md
+```
 ## Project Strucute
 ```text
 rooftop-solar-pv-detection-final/
@@ -174,6 +168,7 @@ rooftop-solar-pv-detection-final/
 ├── venv/
 ├── .env
 └── README.md
+```
 
 ## License
 
