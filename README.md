@@ -162,7 +162,7 @@ rooftop-solar-pv-detection-final/
 ├── prediction_files/
 ├── venv/
 ├── .env
-├── README.md
+└── README.md
 
 ## License
 
